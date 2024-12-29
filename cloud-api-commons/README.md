@@ -1,0 +1,2 @@
+将公用的类抽出来  
+执行maven的clean和install命令
