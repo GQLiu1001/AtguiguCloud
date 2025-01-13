@@ -18,6 +18,8 @@ spring:
       host: localhost
       port: 8500
       discovery:
+        heartbeat:
+          enabled: true
         service-name: ${spring.application.name}
 # ========================mybatis===================
 mybatis:

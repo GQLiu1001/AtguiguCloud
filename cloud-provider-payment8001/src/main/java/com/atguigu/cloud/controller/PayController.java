@@ -17,6 +17,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+
 @CrossOrigin
 @RestController
 @Slf4j //日志
@@ -76,6 +78,9 @@ public class PayController {
         if (id < 0 ){
             throw new RuntimeException("id不能为负数");
         }
+        //暂停62s线程 故意写bug 测试feign默认超时时间 which is 60s 80端口的yaml更改参数
+        try {TimeUnit.SECONDS.sleep(62);}catch (Exception e){e.printStackTrace();}
+
         System.out.println("getPayById方法");
         Pay byId = payService.getById(id);
         if (byId==null){

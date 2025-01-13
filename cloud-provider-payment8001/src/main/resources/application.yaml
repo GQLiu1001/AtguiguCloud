@@ -19,6 +19,8 @@ spring:
       port: 8500
       discovery:
         service-name: ${spring.application.name}
+        heartbeat:
+          enabled: true
 # ========================mybatis===================
 mybatis:
   mapper-locations: classpath:mapper/*.xml

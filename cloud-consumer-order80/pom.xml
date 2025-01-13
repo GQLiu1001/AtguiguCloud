@@ -19,6 +19,11 @@
 
 
     <dependencies>
+        <!--loadbalancer-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
         <!--SpringCloud consul discovery -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
