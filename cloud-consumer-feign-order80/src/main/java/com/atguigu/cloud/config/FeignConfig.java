@@ -1,5 +1,6 @@
 package com.atguigu.cloud.config;
 
+import feign.Logger;
 import feign.Retryer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,5 +16,10 @@ public class FeignConfig
         //period100ms后开启，中间间隔1s后再调用，调用次数最大为3次
         //最大请求次数为3(1+2)，初始间隔时间为100ms，重试间最大间隔时间为1s
 //        return new Retryer.Default(100,1,3);
+    }
+    //openfeign默认不打印
+    @Bean
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
     }
 }
