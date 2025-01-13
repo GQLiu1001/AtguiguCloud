@@ -7,6 +7,8 @@ spring:
   ####Spring Cloud Consul for Service Discovery
   cloud:
     openfeign:
+      okhttp:
+        enabled: false
       client:
         config:
           #for all
@@ -15,11 +17,17 @@ spring:
 #           read-timeout: 3000
           #for specific one higher priority
          cloud-payment-service:
-           connect-timeout: 5000
-           read-timeout: 5000
+           connect-timeout: 1000
+           read-timeout: 1000
+      httpclient:
+        hc5:
+          enabled: true
+#  I don't know what's worry with the code hc5 doesn't work
+#    wtf restart the IDEA then everything is ok???
     consul:
       host: localhost
       port: 8500
       discovery:
         prefer-ip-address: true #优先使用服务ip进行注册
         service-name: ${spring.application.name}
+
