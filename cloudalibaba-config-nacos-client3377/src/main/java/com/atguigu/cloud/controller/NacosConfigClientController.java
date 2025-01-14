@@ -15,6 +15,7 @@ public class NacosConfigClientController
 
     @GetMapping("/config/info")
     public String getConfigInfo() {
+        System.out.println("11");
         return configInfo;
     }
 }
