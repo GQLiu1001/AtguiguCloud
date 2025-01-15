@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 //@FeignClient("cloud-payment-service")
 //feign不直接找微服务 先找网关
-@FeignClient("cloud-gateway")
+@FeignClient(value = "cloud-gateway")
 public interface PayFeignApi
 {
     @PostMapping("/pay/add")
-    public ResultData addPay(@RequestBody PayDTO payDTO);
+    public ResultData<?> addPay(@RequestBody PayDTO payDTO);
     @GetMapping("/pay/get/{id}")
-    public ResultData getPayInfo(@PathVariable("id") Integer id);
+    public ResultData<?> getPayInfo(@PathVariable("id") Integer id);
     @GetMapping("/pay/get/info")
     public String mylb();
     @GetMapping("/pay/micrometer/{id}")
@@ -27,7 +27,7 @@ public interface PayFeignApi
      * @return
      */
     @GetMapping(value = "/pay/gateway/get/{id}")
-    public ResultData getById(@PathVariable("id") Integer id);
+    public ResultData<?> getById(@PathVariable("id") Integer id);
 
     /**
      * GateWay进行网关测试案例02
@@ -35,4 +35,5 @@ public interface PayFeignApi
      */
     @GetMapping(value = "/pay/gateway/info")
     public ResultData<String> getGatewayInfo();
+
 }
