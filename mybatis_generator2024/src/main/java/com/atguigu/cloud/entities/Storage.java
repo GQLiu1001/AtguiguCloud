@@ -11,6 +11,8 @@ public class Storage {
     @GeneratedValue(generator = "JDBC")
     private Long id;
 
+
+
     /**
      * 产品id
      */
